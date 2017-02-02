@@ -15,6 +15,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'sprockets', '>=3.0.0.beta'
 gem 'sprockets-es6'
 gem 'geokit-rails'
+gem 'as_csv', '~> 2.0'
+gem 'render_csv', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
