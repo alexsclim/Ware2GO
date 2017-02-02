@@ -6,7 +6,7 @@ Set up Ruby and Rails on your local machine.
 
 Ruby 2.3.1
 Rails 5.0.1
-Clone the TravelBook repository: git clone git@github.com:alexsclim/TravelBook.git
+Clone the repository
 
 Fetch all project dependencies with bundle install
 
