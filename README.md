@@ -1,24 +1,22 @@
-# README
+Quickstart
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Make sure PostgreSQL is installed locally.
 
-Things you may want to cover:
+Set up Ruby and Rails on your local machine.
 
-* Ruby version
+Ruby 2.3.1
+Rails 5.0.1
+Clone the repository
 
-* System dependencies
+Fetch all project dependencies with bundle install
 
-* Configuration
+Create your database with rake db:create
 
-* Database creation
+Migrate your database with rake db:migrate
 
-* Database initialization
+If you want to populate your database with seed data run rake db:seed
 
-* How to run the test suite
+Start your rails server with rails s
 
-* Services (job queues, cache servers, search engines, etc.)
+Go to localhost:3000 to use the application.
 
-* Deployment instructions
-
-* ...
