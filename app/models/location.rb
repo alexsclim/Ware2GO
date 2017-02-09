@@ -6,6 +6,7 @@ class Location < ApplicationRecord
             :longitude,
             presence: true
 
+  has_many :reviews, dependent: :destroy
 
   def self.to_csv
     CSV.generate do |csv|
