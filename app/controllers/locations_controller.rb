@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def nearby
-    locations = Location.within(0.06, :origin => [params[:latitude], params[:longitude]])
+    locations = Location.within(0.10, :origin => [params[:latitude], params[:longitude]])
     if locations.present?
       locations.first.increment!(:visited_num)
     end
