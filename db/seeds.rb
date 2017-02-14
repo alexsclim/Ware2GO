@@ -30,6 +30,8 @@ review = Review.create(user_id: 3, user_name: 'Arex Rim', location_id: 4, body: 
 
 review = Review.create(user_id: 4, user_name: 'jerry rs zhang', location_id: 3, body: 'I like to hang out with the snakes!')
 
-review = Review.create(user_id: 5, user_name: 'Enumerated Jacqueline', location_id: 5, body: 'Trying to find dem doctors')
+review = Review.create(user_id: 5, user_name: 'Enumerated Jac', location_id: 5, body: 'Trying to find dem doctors')
 
-review = Review.create(user_id: 5, user_name: 'JCWEI', location_id: 8, body: 'ok............kuhxy')
+review = Review.create(user_id: 5, user_name: 'JCWEI', location_id: 8, body: 'hokay............juicykuhxy')
+
+review = Review.create(user_id: 5, user_name: 'Q Girl', location_id: 8, body: 'blah blah blah blah u wot m8')
