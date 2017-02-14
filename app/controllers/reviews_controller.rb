@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
     location = Location.find(params[:building_id])
-    reviews = location.reviews.limit(5)
+    reviews = location.reviews.order(:created_at).limit(6)
     string = ""
     if reviews.present?
       reviews.each do |review|
@@ -20,8 +20,8 @@ class ReviewsController < ApplicationController
 
   def create
     location = Location.find(params[:building_id])
-    review = location.reviews.build(body: params[:body], user_id: params[:user_id], user_name: params[:user_name])
-    review.save
+    review = location.reviews.build(body: params[:review], user_id: params[:user_id], user_name: params[:user_name])
+    review.save!
     render text: "~@Donald Trump was here^&"
   end
 end

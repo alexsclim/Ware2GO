@@ -1,0 +1,52 @@
+<h2 class="text-center">Ware2GO Statistics</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Location #</th>
+            <th>Location Name</th>
+            <th>Location Description</th>
+            <th># of Visitors</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @locations.each do |location| %>
+            <tr>
+              <td><%= location.id %></td>
+              <td><%=location.name %></td>
+              <td><%=location.description %></td>
+              <td><%=location.visited_num %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-6">
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Review #</th>
+            <th>User ID</th>
+            <th>User Name</th>
+            <th>Location ID</th>
+            <th>Review</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <td><%= review.id %></td>
+              <td><%= review.user_id %></td>
+              <td><%= review.user_name %></td>
+              <td><%= review.location_id %></td>
+              <td><%= review.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,20 @@ class LocationsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def nearby
-    locations = Location.within(0.10, :origin => [params[:latitude], params[:longitude]])
+    closest = Location.closest(:origin => [params[:latitude], params[:longitude]])
+    locations = Location.within(0.10, :origin => [params[:latitude], params[:longitude]]).limit(5)
+    hot_locations = Location.all.where.not(visited_num: nil).order('visited_num DESC').limit(4)
+    hot_string = ""
+    if hot_locations.present?
+      hot_locations.each do |location|
+        if hot_string == ""
+          hot_string = hot_string + "h||#{location.name}||#{location.description}"
+        else
+          hot_string = hot_string + "||h||#{location.name}||#{location.description}"
+        end
+      end
+      hot_string = "||" + hot_string + "^&"
+    end
     if locations.present?
       locations.first.increment!(:visited_num)
     end
@@ -10,18 +23,19 @@ class LocationsController < ApplicationController
     if locations.present?
       locations.each do |location|
         if string == ""
-          string = string + "location%||#{location.name}||#{location.description}"
+          string = string + "n||#{location.name}||#{location.description}"
         else
-          string = string + "||location%||#{location.name}||#{location.description}"
+          string = string + "||n||#{location.name}||#{location.description}"
         end
       end
-      string = "~@" + string + "^&"
     end
-    render text: string
+    closest_string = "~@c||#{closest.first.id}||#{closest.first.name}||#{closest.first.description}"
+    new_string = "#{closest_string}||#{string}#{hot_string}"
+    render text: new_string
   end
 
   def hot
-    hot_locations = Location.all.where.not(visited_num: nil).order('visited_num DESC').limit(5)
+    hot_locations = Location.all.where.not(visited_num: nil).order('visited_num DESC').limit(4)
     string = ""
     if hot_locations.present?
       hot_locations.each do |location|
