@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
     location = Location.find(params[:building_id])
-    reviews = location.reviews.order(:created_at).limit(6)
+    reviews = location.reviews.order("created_at DESC").limit(6)
     string = ""
     if reviews.present?
       reviews.each do |review|

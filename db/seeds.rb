@@ -24,7 +24,11 @@ location = Location.create(name: 'Totem Park', latitude: 49.2587602, longitude: 
 
 review = Review.create(user_id: 1, user_name: 'Ronald Drump', location_id: 1, body: 'Make MacLeod Great Again! This place is not as great as it used to be.')
 
-review = Review.create(user_id: 1, user_name: 'Sea Pen', location_id: 1, body: 'bam bam bam bam bang bang bang')
+review = Review.create(user_id: 1, user_name: 'Sea Pen', location_id: 1, body: 'bam bam bng bang bang')
+
+review = Review.create(user_id: 1, user_name: 'Sea Pen1', location_id: 1, body: 'bam bam bam bang bang bang')
+
+review = Review.create(user_id: 1, user_name: 'Sea Pen2', location_id: 1, body: 'bam bam bam bam bang bg')
 
 review = Review.create(user_id: 1, user_name: 'Bob', location_id: 2, body: 'I build stuff.')
 
