@@ -3,8 +3,13 @@ class LocationsController < ApplicationController
 
   def nearby
     closest = Location.closest(:origin => [params[:latitude], params[:longitude]])
-    locations = Location.within(0.10, :origin => [params[:latitude], params[:longitude]]).limit(5)
+    locations = Location.within(0.10, :origin => [params[:latitude], params[:longitude]]).where.not(id: closest.first.id).limit(5)
     hot_locations = Location.all.where.not(visited_num: nil).order('visited_num DESC').limit(4)
+
+    if closest.first.present?
+      closest.first.increment!(:visited_num)
+    end
+
     hot_string = ""
     if hot_locations.present?
       hot_locations.each do |location|
@@ -15,9 +20,6 @@ class LocationsController < ApplicationController
         end
       end
       hot_string = "||" + hot_string + "^&"
-    end
-    if locations.present?
-      locations.first.increment!(:visited_num)
     end
     string = ""
     if locations.present?
@@ -31,7 +33,7 @@ class LocationsController < ApplicationController
     end
     closest_string = "~@c||#{closest.first.id}||#{closest.first.name}||#{closest.first.description}"
     new_string = "#{closest_string}||#{string}#{hot_string}"
-    render text: new_string
+    render plain: new_string
   end
 
   def hot
@@ -47,6 +49,6 @@ class LocationsController < ApplicationController
       end
       string = "~@" + string + "^&"
     end
-    render text: string
+    render plain: string
   end
 end

@@ -18,11 +18,19 @@ location = Location.create(name: 'Life Sciences Building', latitude: 49.2624183,
 
 location = Location.create(name: 'Forestry Building', latitude: 49.2605024, longitude: -123.24762069999997, description: 'This building smells nice')
 
-location = Location.create(name: 'Engineering Student Centre', latitude: 49.2621784, longitude: -123.2492747, description: 'CHEEZE')
+location = Location.create(name: 'Engineering Student Ctr', latitude: 49.2621784, longitude: -123.2492747, description: 'CHEEZE')
 
 location = Location.create(name: 'Totem Park', latitude: 49.2587602, longitude: -123.25233220000001, description: 'Fun Stufffffffs')
 
 review = Review.create(user_id: 1, user_name: 'Ronald Drump', location_id: 1, body: 'Make MacLeod Great Again! This place is not as great as it used to be.')
+
+review = Review.create(user_id: 1, user_name: 'Sea Pen', location_id: 1, body: 'bam bam bam bam bang bang bang')
+
+review = Review.create(user_id: 1, user_name: 'Bob', location_id: 2, body: 'I build stuff.')
+
+review = Review.create(user_id: 1, user_name: 'Frodo Baggins', location_id: 2, body: 'The ringbearer')
+
+review = Review.create(user_id: 1, user_name: 'Thomas', location_id: 3, body: 'The tank engine')
 
 review = Review.create(user_id: 2, user_name: 'Ho Bu', location_id: 7, body: 'This place is a new building. It has that new building smell.')
 

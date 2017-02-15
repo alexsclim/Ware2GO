@@ -8,20 +8,20 @@ class ReviewsController < ApplicationController
     if reviews.present?
       reviews.each do |review|
         if string == ""
-          string = string + "review%||#{review.location_id}||#{review.user_name}||#{review.body}"
+          string = string + "r||#{review.user_name}||#{review.body}"
         else
-          string = string + "||review%||#{review.location_id}||#{review.user_name}||#{review.body}"
+          string = string + "||r||#{review.user_name}||#{review.body}"
         end
       end
       string = "~@" + string + "^&"
     end
-    render text: string
+    render plain: string
   end
 
   def create
     location = Location.find(params[:building_id])
     review = location.reviews.build(body: params[:review], user_id: params[:user_id], user_name: params[:user_name])
     review.save!
-    render text: "~@Donald Trump was here^&"
+    render plain: "~@success||DonaldTrumpWasHere||^&"
   end
 end
