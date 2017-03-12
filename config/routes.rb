@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'stats#index'
+  get 'stats/users', to: 'stats#users'
   get 'tests/index'
 
   post 'locations/nearby', to: 'locations#nearby'
@@ -8,4 +9,6 @@ Rails.application.routes.draw do
 
   get ':building_id/reviews', to: 'reviews#index'
   post ':building_id/reviews', to: 'reviews#create'
+
+  post 'visited', to: 'users#visited'
 end

@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
 
   def nearby
     closest = Location.closest(:origin => [params[:latitude], params[:longitude]])
-    locations = Location.within(0.10, :origin => [params[:latitude], params[:longitude]]).where.not(id: closest.first.id).limit(5)
+    locations = Location.within(1.0, :origin => [params[:latitude], params[:longitude]]).where.not(id: closest.first.id).limit(5)
     hot_locations = Location.all.where.not(visited_num: nil).order('visited_num DESC').limit(4)
 
     if closest.first.present?

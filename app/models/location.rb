@@ -7,6 +7,8 @@ class Location < ApplicationRecord
             presence: true
 
   has_many :reviews, dependent: :destroy
+  has_many :visits
+  has_many :users, through: :visits
 
   def self.to_csv
     CSV.generate do |csv|
