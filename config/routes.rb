@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   post ':building_id/reviews', to: 'reviews#create'
 
   post 'visited', to: 'users#visited'
+
+  get 'locations', to: 'locations#index'
+
+  get 'assistances', to: 'assistances#index'
+  get 'assistances/:user_id', to: 'assistances#show'
+  post 'assistance', to: 'assistances#create'
 end

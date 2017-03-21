@@ -53,4 +53,9 @@ class LocationsController < ApplicationController
     end
     render plain: string
   end
+
+  def index
+    @locations = Location.all
+    render json: @locations, only: [:id, :name, :latitude, :longitude, :description, :visited_num]
+  end
 end

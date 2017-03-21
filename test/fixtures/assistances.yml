@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  integer: 
+  float: 
+  float: 
+
+two:
+  integer: 
+  float: 
+  float: 

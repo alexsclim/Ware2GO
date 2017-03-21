@@ -78,3 +78,6 @@ visits = Visit.create(user_id: 1, location_id: 1)
 visits = Visit.create(user_id: 1, location_id: 5)
 visits = Visit.create(user_id: 2, location_id: 1)
 
+for i in 0..10
+  assistance = Assistance.create(user_id: i, latitude: 999.999, longitude: 999.999)
+end

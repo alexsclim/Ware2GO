@@ -2,8 +2,14 @@ class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def visited
+    if params[:user_id].empty?
+      params[:user_id] = 1
+    end
     @user = User.find(params[:user_id])
-    if @user.visits.where.not(location_id: params[:location_id]).where.not(user_id: params[:user_id])
+    if !@user
+      @usr = User.create()
+    end
+    if @user.visits.where(location_id: params[:location_id], user_id: params[:user_id]).empty?
       @user.visits.build(user_id: params[:user_id], location_id: params[:location_id])
       @user.save
     end
