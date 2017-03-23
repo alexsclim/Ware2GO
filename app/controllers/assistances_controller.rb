@@ -6,6 +6,10 @@ class AssistancesController < ApplicationController
     render json: @assistances
   end
 
+  def index_html
+    @assistances = Assistance.all.order('updated_at DESC')
+  end
+
   def create
     @assistance = Assistance.find_by(user_id: params[:user_id])
     if @assistance
@@ -13,7 +17,7 @@ class AssistancesController < ApplicationController
     else
       @assistance = Assistance.create(user_id: params[:user_id], latitude: params[:latitude], longitude: params[:longitude])
     end
-    render plain: "OK"
+    render plain: "~@OK||Queue Position: #{Assistance.count}||^&"
   end
 
   def show
@@ -22,7 +26,10 @@ class AssistancesController < ApplicationController
   end
 
   def destroy
-    Assistance.find_by(user_id: params[:user_id]).destroy
+    @assistance = Assistance.find_by(user_id: params[:user_id])
+    if @assistance.nil?
+      render plain: 'User already cancelled'
+    end
   end
 end
 

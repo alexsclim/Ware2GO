@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'stats#index'
+  root to: 'landing#index'
   get 'stats/users', to: 'stats#users'
+  get 'stats', to: 'stats#index'
   get 'tests/index'
 
   post 'locations/nearby', to: 'locations#nearby'
@@ -15,6 +16,10 @@ Rails.application.routes.draw do
   get 'locations', to: 'locations#index'
 
   get 'assistances', to: 'assistances#index'
+  get 'assistances_page', to: 'assistances#index_html'
   get 'assistances/:user_id', to: 'assistances#show'
   post 'assistance', to: 'assistances#create'
+  delete 'assistance/:user_id', to: 'assistances#destroy'
+
+  get 'assistance/maps', to: 'assistance_maps#index'
 end

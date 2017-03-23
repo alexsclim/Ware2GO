@@ -55,7 +55,7 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = Location.all
+    @locations = Location.all.order(:id)
     render json: @locations, only: [:id, :name, :latitude, :longitude, :description, :visited_num]
   end
 end
