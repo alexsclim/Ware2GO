@@ -13,7 +13,7 @@ class AssistancesController < ApplicationController
   def create
     @assistance = Assistance.find_by(user_id: params[:user_id])
     if @assistance
-      @assistance.update(user_id: params[:user_id], latitude: params[:latitude], longitude: params[:longitude])
+      @assistance.update(user_id: params[:user_id], latitude: params[:latitude], longitude: params[:longitude], comment: params[:comment])
     else
       @assistance = Assistance.create(user_id: params[:user_id], latitude: params[:latitude], longitude: params[:longitude], comment: params[:comment])
     end
