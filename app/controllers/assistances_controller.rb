@@ -15,7 +15,7 @@ class AssistancesController < ApplicationController
     if @assistance
       @assistance.update(user_id: params[:user_id], latitude: params[:latitude], longitude: params[:longitude])
     else
-      @assistance = Assistance.create(user_id: params[:user_id], latitude: params[:latitude], longitude: params[:longitude])
+      @assistance = Assistance.create(user_id: params[:user_id], latitude: params[:latitude], longitude: params[:longitude], comment: params[:comment])
     end
     render plain: "~@OK||Queue Position: #{Assistance.count}||^&"
   end
