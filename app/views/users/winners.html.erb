@@ -1,0 +1,22 @@
+<h2 class="text-center">Prize Winners</h2>
+
+<div class="container">
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>User #</th>
+        <th>Claimed</th>
+        <th>Claim</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @winners.each do |winner| %>
+        <tr>
+          <td>User Id: <%= winner.id %></td>
+          <td>Claimed: <%= winner.visits.first.claimed? %></td>
+          <td><%= link_to 'Claim', claim_path_url(winner.id), class: 'btn btn-primary' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

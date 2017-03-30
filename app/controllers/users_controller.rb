@@ -23,4 +23,20 @@ class UsersController < ApplicationController
       render plain: 'Visit Pharmacy building and MacLeod building to be eligible for a prize!'
     end
   end
+
+  def winners
+    @users = User.all
+    @winners = []
+    @users.each do |user|
+      if user.visits.where(location_id: 1).present? && user.visits.where(location_id: 5).present?
+        @winners.push(user)
+      end
+    end
+  end
+
+  def claim
+    @user = User.find(params[:user_id])
+    @user.visits.first.update_column(:claimed, true)
+    redirect_to winners_path
+  end
 end

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post ':building_id/reviews', to: 'reviews#create'
 
   post 'visited', to: 'users#visited'
+  get 'winners', to: 'users#winners'
+  get '/claims/:user_id', to: 'users#claim', as: 'claim_path'
 
   get 'locations', to: 'locations#index'
 
@@ -22,4 +24,5 @@ Rails.application.routes.draw do
   delete 'assistance/:user_id', to: 'assistances#destroy'
 
   get 'assistance/maps', to: 'assistance_maps#index'
+  get 'assistance/:user_id/location', to: 'assistances#user_location'
 end

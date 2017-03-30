@@ -6,15 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-location = Location.create(name: 'MacLeod Building', latitude: 0.00001, longitude: 0.00001, description: 'This is where the EECE students are at.', visited_num: 8)
+location = Location.create(name: 'MacLeod Building', latitude: 49.26161239999999, longitude: -123.24936780000002, description: 'This is where the EECE students are at.', visited_num: 8)
 
 location = Location.create(name: 'MacMillan Building', latitude: 49.2612748, longitude: -123.25097160000001, description: 'Farmers have their class here???', visited_num: 5)
 
 location = Location.create(name: 'Sauder School of Business', latitude: 49.2648239, longitude: -123.2537939, description: 'Where the snakes are at.', visited_num: 2)
 
-location = Location.create(name: 'ICICS', latitude: 0.0001, longitude: 0.0001, description: 'Counter Strike majors come here', visited_num: 4)
+location = Location.create(name: 'ICICS', latitude: 49.26126720000001, longitude: -123.24893129999998, description: 'Counter Strike majors come here', visited_num: 4)
 
-location = Location.create(name: 'Pharmacy Building', latitude: 0.000, longitude: 0.00000, description: 'Legal drug dealers :)', visited_num: 15)
+location = Location.create(name: 'Pharmacy Building', latitude: 49.262386, longitude: -123.24327700000003, description: 'Legal drug dealers :)', visited_num: 15)
 
 review = Review.create(user_id: 1, user_name: 'Ronald Drump', location_id: 1, body: 'Make MacLeod Great Again! This place is not as great as it used to be.')
 

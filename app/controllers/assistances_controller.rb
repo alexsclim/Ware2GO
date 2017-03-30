@@ -17,7 +17,7 @@ class AssistancesController < ApplicationController
     else
       @assistance = Assistance.create(user_id: params[:user_id], latitude: params[:latitude], longitude: params[:longitude], comment: params[:comment])
     end
-    render plain: "~@OK||Queue Position: #{Assistance.count}||^&"
+    render plain: "~@OK||Queue Position||#{Assistance.count}||^&"
   end
 
   def show
@@ -29,6 +29,15 @@ class AssistancesController < ApplicationController
     @assistance = Assistance.find_by(user_id: params[:user_id])
     if @assistance.nil?
       render plain: 'User already cancelled'
+    end
+  end
+
+  def user_location
+    @assistance = Assistance.find_by(user_id: params[:user_id])
+    if @assistance.nil?
+      render json: nil
+    else
+      render json: @assistance, only: [:latitude, :longitude]
     end
   end
 end
