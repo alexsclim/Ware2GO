@@ -18,6 +18,7 @@ class AssistanceMapsController < ApplicationController
               'marker-size': 'large',
               'marker-color': 'ff1a1a',
               'marker-symbol': 'rocket',
+              'popupContent': "User #{assistance.user_id}: #{assistance.comment}"
             }
           }
         end

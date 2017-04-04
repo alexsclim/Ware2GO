@@ -74,10 +74,18 @@ user = User.create();
 user = User.create();
 user = User.create();
 
-visits = Visit.create(user_id: 1, location_id: 1)
 visits = Visit.create(user_id: 1, location_id: 5)
 visits = Visit.create(user_id: 2, location_id: 1)
 
-for i in 0..10
-  assistance = Assistance.create(user_id: i, latitude: 999.999, longitude: 999.999)
-end
+assistance = Assistance.create(user_id: 1, latitude: 49.26660099999999, longitude: -123.24985800000002, comment: 'There is no more toilet paper in the stall... please help!')
+assistance = Assistance.create(user_id: 2, latitude: 49.2647892, longitude: -123.25280420000001, comment: 'I fell down, need assistance!')
+assistance = Assistance.create(user_id: 3, latitude: 49.2612426, longitude: -123.25562809999997, comment: 'My microwave is on fire!')
+assistance = Assistance.create(user_id: 4, latitude: 49.2587602, longitude: -123.25233220000001, comment: 'Alchohol poisoning pls send help')
+assistance = Assistance.create(user_id: 5, latitude: 49.2645323, longitude: -123.25860790000002, comment: 'Hello.. Anybody there?')
+assistance = Assistance.create(user_id: 6, latitude: 49.26957400000001, longitude: -123.25661100000002, comment: 'Stepped on a rose.')
+assistance = Assistance.create(user_id: 7, latitude: 49.26265189999999, longitude: -123.25233989999998, comment: 'I tripped over a rock')
+assistance = Assistance.create(user_id: 8, latitude: 49.2684249, longitude: -123.24816520000002, comment: 'Got hit by a bus :(')
+assistance = Assistance.create(user_id: 9, latitude: 49.2578671, longitude: -123.2404937, comment: 'Hit by a rogue ball')
+assistance = Assistance.create(user_id: 10, latitude: 49.26943599999999, longitude: -123.25885, comment: 'OW')
+
+

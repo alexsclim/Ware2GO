@@ -14,9 +14,9 @@
         <tr>
           <td>User Id: <%= winner.id %></td>
           <% if winner.visits.first.claimed? %>
-            <td>Prize has been claimed</td>
+            <td>Prize has been claimed.</td>
           <% else %>
-            <td>Prize not claimed yet</td>
+            <td>Prize not claimed yet.</td>
           <% end %>
           <td><%= link_to 'Claim', claim_path_url(winner.id), class: 'btn btn-primary' %></td>
         </tr>
