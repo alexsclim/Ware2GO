@@ -2,12 +2,12 @@ class AssistancesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @assistances = Assistance.all.order('updated_at DESC')
+    @assistances = Assistance.all.where.not(latitude: 2000, longitude: 2000).order('updated_at DESC')
     render json: @assistances
   end
 
   def index_html
-    @assistances = Assistance.all.order('updated_at DESC')
+    @assistances = Assistance.all.where.not(latitude: 2000, longitude: 2000).order('updated_at DESC')
   end
 
   def create

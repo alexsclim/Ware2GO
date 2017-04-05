@@ -14,7 +14,7 @@ location = Location.create(name: 'Sauder School of Business', latitude: 49.26482
 
 location = Location.create(name: 'ICICS', latitude: 49.26126720000001, longitude: -123.24893129999998, description: 'Counter Strike majors come here', visited_num: 4)
 
-location = Location.create(name: 'Pharmacy Building', latitude: 49.262386, longitude: -123.24327700000003, description: 'Legal drug dealers :)', visited_num: 15)
+location = Location.create(name: 'Pharmacy Building', latitude: 49.2622723, longitude: -123.24339399999997, description: 'Legal drug dealers :)', visited_num: 15)
 
 review = Review.create(user_id: 1, user_name: 'Ronald Drump', location_id: 1, body: 'Make MacLeod Great Again! This place is not as great as it used to be.')
 
@@ -74,8 +74,10 @@ user = User.create();
 user = User.create();
 user = User.create();
 
+visits = Visit.create(user_id: 1, location_id: 1)
 visits = Visit.create(user_id: 1, location_id: 5)
 visits = Visit.create(user_id: 2, location_id: 1)
+visits = Visit.create(user_id: 3, location_id: 5)
 
 assistance = Assistance.create(user_id: 1, latitude: 49.26660099999999, longitude: -123.24985800000002, comment: 'There is no more toilet paper in the stall... please help!')
 assistance = Assistance.create(user_id: 2, latitude: 49.2647892, longitude: -123.25280420000001, comment: 'I fell down, need assistance!')
