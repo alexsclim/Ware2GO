@@ -5,10 +5,7 @@ class UsersController < ApplicationController
     if params[:user_id].empty?
       params[:user_id] = 1
     end
-    @user = User.find(params[:user_id])
-    if !@user
-      @usr = User.create()
-    end
+    @user = User.find_or_create_by(id: params[:user_id])
     if @user.visits.where(location_id: params[:location_id], user_id: params[:user_id]).empty?
       @user.visits.build(user_id: params[:user_id], location_id: params[:location_id])
       @user.save
